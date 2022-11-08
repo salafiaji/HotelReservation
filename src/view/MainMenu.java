@@ -1,14 +1,11 @@
 package view;
 
-import api.AdminResource;
 import api.HotelResource;
 import model.Customer;
 import model.IRoom;
 import model.Reservation;
-import sun.java2d.pipe.SpanShapeRenderer;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +19,7 @@ public class MainMenu extends Menu {
 
     @Override
     public void start() {
-        int option = 0;
+        int option;
         do {
             display(this);
             option = getMenuOption("Please select a number for the menu option");
@@ -63,7 +60,7 @@ public class MainMenu extends Menu {
 
     private String createAnAccount() {
         String firstName, lastName, email;
-        Customer cust = null;
+        Customer cust;
         do {
             email = getEmail("Enter Email Format: name@domain.com");
             cust = HotelResource.getCustomer(email);
